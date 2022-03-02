@@ -4,6 +4,6 @@
 
 API criada usando nodejs, frontend com o frameword Angular e o banco de dados MongoBD
 
-Backend - ok
-Frontend - com bugs*
+# Backend - ok
+# Frontend - com bugs*
 
