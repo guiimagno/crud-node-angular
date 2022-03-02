@@ -1,0 +1,22 @@
+{
+  "name": "api-node",
+  "version": "1.0.0",
+  "description": "Projeto Orgcad",
+  "main": "src/app.js",
+  "scripts": {
+    "dev": "nodemon src/index.js",
+    "start": "node ./src/index.js"
+  },
+  "author": "Guilherme Magno",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.3",
+    "mongodb": "^4.4.0",
+    "mongoose": "^6.2.4",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}

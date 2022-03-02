@@ -1,0 +1,83 @@
+<div class="row">
+
+  <div class="col-md-4">
+    <div class="card">
+      <div class="card-body p-4">
+
+        <form #formCandidato="ngForm" (ngSubmit)="addCandidato(formCandidato)">
+
+          <input type="hidden" name="id" #id="ngModel"
+          [(ngModel)]="candidatoService.selectedCandidato.id">
+
+          <div class="form-group">
+            <input type="text" name="nome" #name="ngModel"
+            [(ngModel)]="candidatoService.selectedCandidato.nome"
+              placeholder="Enter your FullName" class="form-control">
+          </div>
+
+          <div class="form-group">
+            <div class="input-field col-s12">
+              <input type="text" name="dataNascimento" #name="ngModel"
+                [(ngModel)]="candidatoService.selectedCandidato.dataNascimento"
+                class="form-control">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <input type="text" name="cpf" #name="ngModel"
+            [(ngModel)]="candidatoService.selectedCandidato.cpf"
+              placeholder="CPF" class="form-control">
+          </div>
+
+          <div class="form-group">
+            <div class="input-field col-s12">
+              <input type="text" name="email" #name="ngModel"
+              [(ngModel)]="candidatoService.selectedCandidato.email"
+                value="0" placeholder="Email" class="form-control">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="input-field col-s12">
+              <input type="text" name="telefone" #name="ngModel"
+                [(ngModel)]="candidatoService.selectedCandidato.telefone" value="0" placeholder="Telefone"
+                class="form-control">
+            </div>
+          </div>
+
+          <button class="btn btn-primary mr-2" (click)="resetForm(formCandidato)">Excluir</button>
+          <button class="btn btn-secondary">Salvar</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-8">
+    <table class="table table-striped">
+      <thead>
+        <th>Nome</th>
+        <th>Data de Nascimento</th>
+        <th>CPF</th>
+        <th>Email</th>
+        <th>Telefone</th>
+      </thead>
+      <tbody>
+        <tr *ngFor="let candidato of candidatoService.candidatos">
+          <td>{{ candidato.nome }}</td>
+          <td>{{ candidato.dataNascimento }}</td>
+          <td>{{ candidato.cpf }}</td>
+          <td>{{ candidato.email }}</td>
+          <td>{{ candidato.telefone }}</td>
+          <td>
+            <a (click)="editCandidato(candidato)" class="btn btn-secondary btn-sm">
+              <i class="material-icons">edit</i>
+            </a>
+            <a (click)="deleteCandidato(candidato.id, formCandidato)" class="btn btn-danger btn-sm">
+              <i class="material-icons">delete</i>
+            </a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
